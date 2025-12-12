@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Mahasiswa</title>
+  <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+  <div class="shell">
+    <div class="app">
+      <header>
+        <div>
+          <div class="tag">Dashboard Mahasiswa</div>
+          <h1>Data Mahasiswa</h1>
+          <div class="status" id="statusText">Silakan tambah, urutkan, atau edit data.</div>
+        </div>
+        <button id="logoutBtn" class="muted-btn" type="button">Logout</button>
+      </header>
+
+      <div class="grid">
+        <div class="card fade-in">
+          <h3 style="margin-top:0">Tambah / Edit Data</h3>
+          <form id="studentForm">
+            <input type="hidden" id="editIndex" value="" />
+            <label>Nama
+              <input id="name" type="text" placeholder="Nama lengkap" required />
+            </label>
+            <label>NIM
+              <input id="nim" type="text" placeholder="NIM" required />
+            </label>
+            <label>Jurusan
+              <input id="major" type="text" placeholder="Jurusan" required />
+            </label>
+            <label>Email
+              <input id="email" type="email" placeholder="email@student.ac.id" required />
+            </label>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="submit" id="submitBtn">Simpan</button>
+              <button type="button" id="resetBtn" class="muted-btn">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card fade-in">
+          <h3 style="margin-top:0">Urutkan</h3>
+          <div style="display:grid; gap:10px;">
+            <label>Kolom
+              <select id="sortField">
+                <option value="name">Nama</option>
+                <option value="nim">NIM</option>
+                <option value="major">Jurusan</option>
+                <option value="email">Email</option>
+              </select>
+            </label>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="button" id="ascBtn">Ascending</button>
+              <button type="button" id="descBtn" class="muted-btn">Descending</button>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <small class="muted" style="color:var(--muted)">Klik header tabel untuk toggle urutan juga.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in" style="margin-top:14px;">
+        <div class="table-wrap">
+          <table id="studentTable">
+            <thead>
+              <tr>
+                <th data-field="name"><span>Nama <span class="sort-indicator">⇅</span></span></th>
+                <th data-field="nim"><span>NIM <span class="sort-indicator">⇅</span></span></th>
+                <th data-field="major"><span>Jurusan <span class="sort-indicator">⇅</span></span></th>
+                <th data-field="email"><span>Email <span class="sort-indicator">⇅</span></span></th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card" id="loginCard">
+      <h2>Masuk</h2>
+      <p class="status" id="loginStatus">Silakan masukkan password Anda.</p>
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button id="loginBtn">Login</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast info" aria-live="polite"></div>
+
+  <div class="splash" id="welcomeSplash" aria-hidden="true">
+    <div class="splash-inner">
+      <div class="splash-text">SELAMAT DATANG</div>
+    </div>
+  </div>
+
+  <div class="splash" id="farewellSplash" aria-hidden="true">
+    <div class="splash-inner">
+      <div class="splash-text">SAMPAI JUMPA LAGI</div>
+    </div>
+  </div>
+
+  <script src="script1.js"></script>
+</body>
+</html>
+
